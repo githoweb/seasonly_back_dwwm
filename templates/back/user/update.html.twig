@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification : {{ user.id }}{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between">
+        <h3>Modification : {{ user.id }}</h3>
+        <a class="btn custom-btn-add" href="{{ path('app_back_user_index') }}">Liste des ingrédients</a>
+    </div>
+    <div class="mt-2">
+        {{ include('back/user/_form.html.twig', {'button_label': 'Update'}) }}
+    </div>
+
+{% endblock %}

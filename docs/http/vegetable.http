@@ -1,0 +1,16 @@
+### Liste des vegetables
+GET http://localhost:8000/api/vegetable
+
+### Détail d'un vegetable
+GET http://localhost:8000/api/vegetable/10
+
+### Modification d'un vegetable
+PUT http://localhost:8000/api/vegetable/10
+content-type: application/json
+
+{
+    "title" : "Mise a jour via l'api"
+}
+
+### Suppression d'un vegetable
+DELETE http://localhost:8000/api/vegetable/11

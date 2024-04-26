@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Ingredient{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between">
+        <h3>Ajouter un nouvel ingrédient</h3>
+        <a class="btn custom-btn-add" href="{{ path('app_back_ingredient_index') }}">Liste des ingrédients</a>
+    </div>
+    <div class="mt-2">
+        {{ include('back/ingredient/_form.html.twig') }}
+    </div>
+
+{% endblock %}

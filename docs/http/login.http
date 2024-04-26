@@ -1,0 +1,26 @@
+### Connexion API
+POST http://localhost:8000/api/login_check
+content-type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+### Deconnexion API
+POST http://localhost:8000/api/logout
+content-type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAwNjU5OTEsImV4cCI6MTcwMDA2OTU5MSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiIsIlJPTEVfTUVNQkVSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.DctRmv3zps-yhQR21vEw1VT1RaNgtjHF6_E00iQyctecChSxyDpLx0oyJgmUFtZa4OmQ9mtrrfrBXW8yG9llm67GJU4PiUlXMmFhVws7oyWcEOQRWoSOVDlx5yOJoxSlwjKfHc0hmZIcr3R7m5DJet83twrKOcFJDY0As9g0f7uPozyh1cpDWkEJNM5Ex4cCgyT7890flLhLcbJuE_Dy9SC49UHpMtmbr41WY1rHsNu0UZLQKnJzl-39obpmKuc2BvpHSZpFFXPYdZ--4pYZx1XpRYFt3rXa53OnsDpsC2giqB4LV1tCB0_vdgAFJIAX4RBTqhvbsAkoIDtVp0sBws9jM6bYu8zkMxKJjbtfiiIaK6_Yd-O3RPUErlu6s8swOOyXNZ_Jk_7hYW7rMG7Jq6pvK7Vd45GXtO5ZccYxRDkkklWf-I1cVI-yTTDkYnTLonagiLTQ3u-9r_8fHugNdZQy4mwINPYWVHEPbEkARt0GsYbYXwsblyH3bgMh7KvUD2LVwQOtVcggm8I9iu8AhZBcZnxZFZQqDx4KudDbZWMmwb0iV_Z2HtfsxxAuGKxvNXKiBhrXWzeQTUa_FOEirnsrxXgPly8Mz__Al6knFApxrU5xie4mlNTGcDGv9RmNuoaxIC_cmMNf4OVX0yrLWdBb8iZrM3t-5msvfmfdLSk
+
+### Connexion au backoffice
+POST http://localhost:8000/back/login
+content-type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+### Déconnexion du backoffice
+GET http://localhost:8000/back/logout
+

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ingredient index{% endblock %}
+
+{% block body %}
+    <div>
+        <h1 class="text-center mt-4">Liste des ingrédients</h1>
+        <div class="container my-4">
+            <a class="btn custom-btn-add" href="{{ path('app_back_ingredient_create') }}">Ajouter un ingrédient</a>
+        </div>
+        <table class="table table-striped table-bordered table-responsive mt-4">
+            <thead class="custom-thead">
+                <tr class="text-center">
+                    <th scope="col">Id</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Modification</th>
+                    <th scope="col">Suppression</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for ingredient in ingredients %}
+                <tr class="text-center">
+                    <td>{{ ingredient.id }}</td>
+                    <td>{{ ingredient.name }}</td>
+                    <td class="d-flex justify-content-around">
+                        <a class="btn custom-btn-add" href="{{ path('app_back_ingredient_show', {'id': ingredient.id}) }}">Voir plus</a>
+                    </td>
+                    <td>
+                        <a class="btn custom-btn-warning" href="{{ path('app_back_ingredient_update', {'id': ingredient.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

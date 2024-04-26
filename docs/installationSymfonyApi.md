@@ -65,7 +65,7 @@ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_
 openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout
 ```    
 
-- Copier coller les éléments suivants depuis .env 
+- Copier coller les éléments suivants depuis .env dans .env.local :
 
 ``` env
 ###> lexik/jwt-authentication-bundle ###

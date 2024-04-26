@@ -1,0 +1,75 @@
+html {
+    overflow-y: scroll;
+}
+
+body {
+    background-color: #fff9f2;
+    font-family: 'Work Sans', sans-serif;
+}
+
+footer {
+    background-color: #fff9f2;
+}
+
+.navbar {
+    background-color: #45624c;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f7d6b1;
+}
+
+.nav-item.dropdown:hover .a.nav-link {
+    color: #f7d6b1; /* Couleur au survol */
+}
+
+.custom-btn-warning {
+    color: white;
+    background-color: #DF6C2A;
+}
+
+.custom-btn-add {
+    background-color: #e4c9ab;
+}
+
+.custom-thead {
+    color: white;
+    background-color: #45624c;
+}
+
+.custom-thead-ingredient {
+    background-color: #e4c9ab;
+}
+
+.custom-link-connexion {
+    color: black;
+}
+
+.custom-link-connexion:hover {
+    color: #45624c;
+}
+
+.header-logo__title {
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0.8em 0 0.3em;
+}
+
+.home-page {
+    text-align: center;
+    background-image: url('../images/background2-8.png'); /* Photo de <a href="https://unsplash.com/fr/@jannerboy62?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Nick Fewings</a> sur <a href="https://unsplash.com/fr/photos/legumes-verts-et-bruns-sur-une-table-en-bois-brune-O6ZhaRtXa3Q?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
+    background-size: cover;    
+    color: white;
+    font-weight: bold;
+    padding: 300px;
+}
+
+.nav-link {
+    color: white;
+    font-weight: bold;
+}
+
+.h-md-300 {
+    height: 300px;
+}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vegetable index{% endblock %}
+
+{% block body %}
+    <div>
+        <h1 class="text-center mt-4">Liste des fruits et légumes</h1>
+        <div class="container my-4">
+        <a class="custom-btn-add btn" href="{{ path('app_back_vegetable_create') }}">Nouveau fruit ou légume</a>
+            <table class="table table-striped table-bordered table-responsive mt-4">
+                <thead class="custom-thead">
+                    <tr class="text-center">
+                        <th scope="col">Id</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Détail</th>
+                        <th scope="col">Modification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for vegetable in vegetables %}
+                    <tr class="text-center">
+                        <td scope="row">{{ vegetable.id }}</td>
+                        <td>{{ vegetable.title }}</td>
+                        <td>
+                            <a href="{{ path('app_back_vegetable_show', {'id': vegetable.id}) }}" class="btn btn-sm custom-btn-add">Voir plus</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="{{ path('app_back_vegetable_update', {'id': vegetable.id}) }}" class="btn btn-sm custom-btn-warning">Modifier</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="10">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

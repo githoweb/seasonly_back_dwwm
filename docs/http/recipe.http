@@ -1,0 +1,30 @@
+### Liste des recettes
+GET http://localhost:8000/api/recipe/
+
+### Détail d'une recette
+GET http://localhost:8000/api/recipe/14
+
+### Modification d'une recette
+PUT http://localhost:8000/api/recipe/15
+content-type: application/json
+
+{
+    "title" : "Mise a jour via l'api"
+}
+
+### Suppression d'une recette
+DELETE http://localhost:8000/api/recipe/6
+
+### Ajout d'une recette
+POST http://localhost:8000/api/recipe/
+content-type: application/json
+
+{
+  "title": "From API",
+  "image": "https://img.freepik.com/photos-gratuite/orange-blanc-blanc_144627-16571.jpg?w=826&t=st=1698678665~exp=1698679265~hmac=0ca79fb15ccddf4540d2e4765c5d7a29f34724eccfc633d96bdfe2773fe8621e",
+  "description": "Recette Test",
+  "instruction": "Etape 1 : Lorem Ipsum, Etape 3 : Lorem Ipsum, Etape 4 : Lorem Ipsum",
+  "duration": 120,
+  "serving": 4,
+  "created_at": "2012-08-12"
+}

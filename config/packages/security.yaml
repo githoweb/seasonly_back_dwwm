@@ -1,0 +1,95 @@
+# Configuration de la sécurité dans Symfony
+
+security:
+    # Activer le gestionnaire d'authentification (authenticator manager)
+    enable_authenticator_manager: true
+    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+    
+    # Configurer les algorithmes de hachage des mots de passe
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+    # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+    
+    # Configurer les fournisseurs de données d'utilisateurs
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\Member
+                property: pseudo
+
+    # Configurer les pare-feux
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        # Pare-feu pour la connexion API
+        login_api:
+            pattern: ^/api/login
+            stateless: true
+            json_login:
+                check_path: /api/login_check
+                success_handler: app.api_authentication_success_handler
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+         # Pare-feu pour les routes commençant par "/api"
+        api:
+            pattern: ^/api
+            stateless: true
+            jwt: ~
+            logout:
+                path: app_api_logout
+                target: /api/  # Redirection après la déconnexion de l'API
+
+        # Pare-feu principal pour l'authentification backoffice avec formulaire de connexion
+        main:
+            lazy: true
+            provider: app_user_provider
+            logout:
+                path: app_back_logout
+                target: app_back_login
+            form_login:
+                # "app_back_login" route de connexion back et redirection vers l'accueil
+                login_path: app_back_login
+                check_path: app_back_login
+                default_target_path: /back/
+        
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#the-firewall
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+    
+    # Configurer les encodeurs de mots de passe
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
+    # Contrôler l'accès à certaines parties du site
+    access_control:
+        - { path: ^/api/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/logout, roles: [ROLE_MEMBER] }
+        - { path: ^/api/member/add, roles: PUBLIC_ACCESS }
+        - { path: ^/api/favorite, roles: [ROLE_MEMBER] }
+        - { path: ^/api/favorite/delete/\d+, roles: [ROLE_MEMBER] }
+        - { path: ^/api/favorite/add/\d+, roles: [ROLE_MEMBER] }
+        - { path: ^/api/member, roles: [ROLE_MEMBER] }
+        - { path: ^/api/member/\d+, roles: [ROLE_MEMBER] }
+        - { path: ^/api, roles: PUBLIC_ACCESS }
+        - { path: ^/back/login, roles: PUBLIC_ACCESS }
+        - { path: ^/back/logout, roles: [ROLE_ADMIN] }
+        - { path: ^/back, roles: [ROLE_ADMIN] }
+
+    # Hiérarchie des rôles
+    role_hierarchy:
+        ROLE_MEMBER: ROLE_USER
+        ROLE_ADMIN: ROLE_MEMBER
+
+# Configuration spécifique pour les tests
+when@test:
+    security:
+        password_hashers:
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4 # Lowest possible value for bcrypt
+                time_cost: 3 # Lowest possible value for argon
+                memory_cost: 10 # Lowest possible value for argon

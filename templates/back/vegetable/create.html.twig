@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau vegetable{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between">
+    <h3>Ajouter un fruit ou un légume</h1>
+        <a class="btn custom-btn-add" href="{{ path('app_back_vegetable_index') }}">Liste des fruits et légumes</a>
+    </div>
+    <div class="mt-2">
+        {{ include('back/vegetable/_form.html.twig') }}
+    </div>
+
+{% endblock %}

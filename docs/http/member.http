@@ -1,0 +1,55 @@
+### Liste des member
+GET http://localhost:8000/api/member
+
+### Connexion API
+POST http://localhost:8000/api/login_check
+content-type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+### Connexion API
+POST http://localhost:8000/api/login_check
+content-type: application/json
+
+{
+  "username": "Christopher",
+  "password": "!Vv77777"
+}
+
+### Détail d'un member
+GET http://localhost:8000/api/member/22
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAwNjYwOTIsImV4cCI6MTcwMDA2OTY5Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiIsIlJPTEVfTUVNQkVSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.hwfcBYsTviBX4NJKFOhvdC_oQDl1dMJrMNWKh_3GgeUNjWsy6ziKAyKcsCTDL8W2xRiRDgjpnOgv6RIEWgvwx75GKEFRHTCImDAjGvbxa8L36GfSQoqTCzks7kx4ejUsL5KICNBPFHS_Aw62V65j-vG4V0ea1sDm1EEMVu5Wolz2P99D8FSqHfyK6amub8uRbGTfdBKUkM_FfQBhi9Oz0y2UloXtTq2wefIbUu1cwmCaeLNeDDkX85WPlFdUf_wmmKdNAzkHV5K5iWopGLu2FUmlF-f7GppBw5esiLZ6HL7sjz-7i_KL3WQDW7jTH9-9D6GEz_njvzUwGwOTHtvJKiTDGrQHs-aC4sivU91HJ9SkqGpe1fpkYmzFqqSrD3WA6uYrhz9KGrGX1XRDY3P4M5VTBwYPI435UwVXPcAKa5zkBhIqUGpZF8SgVhC6dQx2JXMGQKVm0SsfE1EPcRHg4aP3Ee9OQgoAudCLaVis-q0QqOTaskn_58ZiQ4fFWfVcLcDsQxn4TOXRSHILQbBqqaZksVjHd6GIzoypI7n3Rk9G2PUcjPIYXI1lhl7o39DWIRG2-iFNqj3-2un0-PPbvwKVk7zZmx-yK2vftojRZVWeHYMCbEZXcIpPQrqQ68kC1Knhz4aF0ygc1WlFS9iEtT_m3dPTyqKPw_CXjKVY-pw
+
+### Modification d'un member
+PUT http://localhost:8000/api/member/3
+content-type: application/json
+
+{
+    "pseudo" : "moderateur"
+}
+
+### Suppression d'un member
+DELETE http://localhost:8000/api/member/4
+
+### Ajout d'un member
+POST http://localhost:8000/api/member/add
+content-type: application/json
+
+{
+  "email": "babo@gmli.com",
+  "pseudo": "Superman",
+  "password": "!Vv77777",
+  "role": "[ROLE_USER]",
+  "created_at": "2023-01-01"
+}
+
+### Modification d'un member backoffice
+PUT http://localhost:8000/back/member/update/3
+content-type: application/json
+
+{
+    "pseudo" : "moderateur"
+}

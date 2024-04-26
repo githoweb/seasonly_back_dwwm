@@ -1,0 +1,19 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# Route de connexion API
+api_login_check:
+    path: /api/login_check
+# Route de déconnexion API
+app_api_logout:
+    path: /api/logout
+    controller: App\Controller\Api\SecurityController::logout
+# Route de connexion du backend
+app_back_login:
+    path: /back/login
+    controller: App\Controller\Back\SecurityController::login
+# Route de déconnexion du backend
+app_back_logout:
+    path: /back/logout
+    controller: App\Controller\Back\SecurityController::logout

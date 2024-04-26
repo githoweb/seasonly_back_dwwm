@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle recette{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between">
+    <h3>Créer une nouvelle recette</h1>
+        <a class="btn custom-btn-add" href="{{ path('app_back_recipe_index') }}">Liste des recettes</a>
+    </div>
+    <div class="mt-2">
+        {{ include('back/recipe/_form.html.twig') }}
+    </div>
+
+{% endblock %}
